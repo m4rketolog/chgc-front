@@ -1,0 +1,7 @@
+.storage-wrapper {
+    width: 100%;
+    background: #F0F3FF;
+    height: 100vh;
+    border-top-left-radius: 2vh 2vh;
+    border-top-right-radius: 2vh 2vh;
+}
