@@ -1,0 +1,19 @@
+.file-cell {
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.file-cell_img {
+    height: 70px;
+}
+
+.file-cell_name {
+    font-size: 15px;
+    font-weight: 600;
+    font-family: "Montserrat", sans-serif;
+    color: black;
+}

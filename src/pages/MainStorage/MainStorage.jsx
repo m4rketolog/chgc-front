@@ -1,13 +1,12 @@
 import StorageHeader from "./components/StorageHeader.jsx";
-
-import './MainStorage.css'
 import StorageFiles from "./components/StorageFiles.jsx";
 
+import './MainStorage.css'
 const MainStorage = () => {
+
     return (
         <div className={"main-storage"}>
             <StorageHeader/>
-            <StorageFiles/>
             <div className={"storage-wrapper"}>
                 <StorageFiles/>
             </div>
