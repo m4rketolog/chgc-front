@@ -1,6 +1,21 @@
 import {Link} from "react-router-dom";
+import {sendRequest} from "../../helpers/sendRequest.js";
 import './LoginPage.css'
+import {API} from "../../constants/const.js";
+import {useState} from "react";
+
 const LoginPage = () => {
+
+    const [login, setLogin] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleLoginForm = async (event) => {
+        event.preventDefault();
+        return await sendRequest(`${API}login`, "POST", {
+            body: JSON.stringify({Username: login, Password: password})
+        }, )
+            .then((rep)=>console.log(rep.data, "\n", rep.message))
+    }
 
     return (
         <div className={"login"}>
@@ -13,9 +28,9 @@ const LoginPage = () => {
             <div className={"login-form"}>
                 <div className="form-container">
                     <p className={"login-form_title"}>Войти</p>
-                    <form action="submit" className="login-form_form">
-                        <input className={"form-holder"} type="text" placeholder={"Логин"}/>
-                        <input className={"form-holder"} type="password" placeholder={"Пароль"}/>
+                    <form action="submit" onSubmit={handleLoginForm} className="login-form_form">
+                        <input className={"form-holder"} onChange={(e) => setLogin(e.target.value)} type="text" placeholder={"Логин"}/>
+                        <input className={"form-holder"} onChange={(e) => setPassword(e.target.value)} type="password" placeholder={"Пароль"}/>
                         <button className={"btn-submit"}>Войти</button>
                         <p className={"login-switch"}>Ещё нет аккаунта ? <Link className={"login-switch-link"} to={"/reg"}>Зарегестрироватся </Link>
                         </p>
