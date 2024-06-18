@@ -1,3 +1,20 @@
+.storage-content {
+    display: grid;
+    grid-template-columns: 20% 80%;
+}
+
+.storage-nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.storage-nav_item {
+    color: white;
+    font-family: Inter, sans-serif;
+    padding: 5px 20px;
+    font-weight: 400;
+}
+
 .main-storage {
     width: 100%;
 }
