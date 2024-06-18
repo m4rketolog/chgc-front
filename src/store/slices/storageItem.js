@@ -1,6 +1,6 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { sendRequest } from '../../helpers/sendRequest.js'
-import { API } from "../../constants/const.js";
+import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
+import {sendRequest} from '../../helpers/sendRequest.js'
+import {API} from "../../constants/const.js";
 
 const initialState = {
     storeItems: [],
@@ -9,8 +9,7 @@ const initialState = {
 export const fetchItemCards = createAsyncThunk(
     'items/fetchItems',
     async () => {
-        const data = await sendRequest(`${API}`);
-        return data;
+        return await sendRequest(`${API}`);
     }
 )
 

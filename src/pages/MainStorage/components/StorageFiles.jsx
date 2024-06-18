@@ -45,7 +45,7 @@ const StorageFiles = () => {
                 isOpen={isModal}
                 onClose={handleModal}
                 onClick={()=>console.log(39)}
-                title={"Editing current file LoL"}
+                title={"Редактирование файла main.exe"}
             />
         </>
 
