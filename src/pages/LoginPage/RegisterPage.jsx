@@ -11,7 +11,7 @@ const RegisterPage = () => {
 
     const handleRegisterForm = async (event) => {
         event.preventDefault();
-        return await sendRequest(`${API}register`, "POST", {
+        return await sendRequest(`${API}user/register`, "POST", {
             body: JSON.stringify({Username: login, Password: password, Email: email})
         }, )
             .then((rep)=>{
@@ -31,12 +31,12 @@ const RegisterPage = () => {
             </div>
             <div className={"login-form"}>
                 <div className="form-container">
-                    <p className={"login-form_title"}>Регестрация</p>
+                    <p className={"login-form_title"}>Регистрация</p>
                     <form onSubmit={handleRegisterForm} action="submit" className="login-form_form">
                         <input className={"form-holder"} onChange={(e) => setLogin(e.target.value)} type="text" placeholder={"Логин"}/>
                         <input className={"form-holder"} onChange={(e) => setEmail(e.target.value)} type="text" placeholder={"Почта"}/>
                         <input className={"form-holder"} onChange={(e) => setPassword(e.target.value)} type="password" placeholder={"Пароль"}/>
-                        <button className={"btn-submit"}>Зарегестрироватся</button>
+                        <button className={"btn-submit"}>Зарегистрироватся</button>
                         <p className={"login-switch"}>Уже есть аккаунт ? <Link className={"login-switch-link"} to={"/login"}>Войти</Link>
                         </p>
                     </form>

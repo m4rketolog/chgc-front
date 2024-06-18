@@ -11,7 +11,7 @@ const LoginPage = () => {
 
     const handleLoginForm = async (event) => {
         event.preventDefault();
-        return await sendRequest(`${API}login`, "POST", {
+        return await sendRequest(`${API}user/login`, "POST", {
             body: JSON.stringify({Username: login, Password: password})
         }, )
             .then((rep)=>{
