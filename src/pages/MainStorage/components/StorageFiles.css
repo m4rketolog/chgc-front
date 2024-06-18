@@ -29,10 +29,12 @@
 }
 
 .filters-box {
+    display: flex;
     padding: 0 40px;
 }
 
 .filter-by_btn {
+    margin-left: 20px;
     cursor: pointer;
     display: flex;
     justify-content: center;

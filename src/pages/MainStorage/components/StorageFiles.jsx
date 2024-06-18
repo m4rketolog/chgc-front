@@ -4,16 +4,17 @@ import {useSelector, useDispatch} from "react-redux";
 import {fetchItemCards} from "../../../store/slices/storageItem.js"
 import FileItem from "./FileItem.jsx";
 import Button from "../../../components/Button/Button.jsx";
-import ModalBase from "../../../components/Modal/ModalBase.jsx";
 import ModalPermissions from "./ModalPermissions.jsx";
+import AddFileModal from "./AddFileModal.jsx";
 
 const StorageFiles = () => {
     const dispatch = useDispatch();
     const itemsList = useSelector((state)=>state.items.storeItems)
     const [isModal, setIsModal] = useState(false);
+    const [fileModal, setFileModal] = useState(false);
 
     const handleModal = () => setIsModal(!isModal);
-
+    const handleAddModal = () => setFileModal(!fileModal);
     useEffect(()=>{
         dispatch(fetchItemCards());
     }, [])
@@ -35,6 +36,7 @@ const StorageFiles = () => {
                     <option value="3">Тип файла</option>
                     <option value="4">Объем</option>
                 </select>
+                <button onClick={handleAddModal} className={"filter-by_btn"}>Добавить файл</button>
             </div>
             <div className={"items-list"}>
                 {itemsList.map((item)=>(
@@ -46,6 +48,11 @@ const StorageFiles = () => {
                 onClose={handleModal}
                 onClick={()=>console.log(39)}
                 title={"Редактирование файла main.exe"}
+            />
+            <AddFileModal
+                isOpen={fileModal}
+                onClose={handleAddModal}
+                onClick={()=>console.log("fileAdded")}
             />
         </>
 

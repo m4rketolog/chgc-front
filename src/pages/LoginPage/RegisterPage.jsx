@@ -1,9 +1,10 @@
 import './LoginPage.css'
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {useState} from "react";
 import {sendRequest} from "../../helpers/sendRequest.js";
 import {API} from "../../constants/const.js";
 const RegisterPage = () => {
+    const navigate = useNavigate();
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
@@ -13,7 +14,10 @@ const RegisterPage = () => {
         return await sendRequest(`${API}register`, "POST", {
             body: JSON.stringify({Username: login, Password: password, Email: email})
         }, )
-            .then((rep)=>console.log(rep.data, "\n", rep.message))
+            .then((rep)=>{
+                if(rep) {
+                    navigate("/storage")
+                }})
     }
 
 
